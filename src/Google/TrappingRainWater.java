@@ -1,22 +1,20 @@
 package Google;
 
 import java.awt.Point;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-import java.util.concurrent.ConcurrentLinkedQueue;
+
 
 public class TrappingRainWater {
 
-	public static void main(String[] args) {
+   	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(trapRainWater(new int[][]
-		{{1,4,3,1,3,2},{3,2,1,3,2,4},{2,3,3,2,3,1}}));
+		int heightMap[][]= new int[][]
+				{{1,4,3,1,3,2},{3,2,1,3,2,4},{2,3,3,2,3,1}};
+		System.out.println(trapRainWater(heightMap));
 	}
 	
 	public static int trapRainWater(int[][] heightMap) {
@@ -25,9 +23,9 @@ public class TrappingRainWater {
 		int sum_without_water = addHieghts(heightMap);
 		int sum_with_water=0;
 		findMinThanNeighbours(heightMap, minheightQueue);
-		Iterator<Point> itr = minheightQueue.iterator();
-		while(itr.hasNext()){
-			Point h = itr.next();
+		//Iterator<Point> itr = minheightQueue.iterator();
+		while(!minheightQueue.isEmpty()){
+			Point h = minheightQueue.iterator().next();
 			Set<Point> lateral = new HashSet<Point>();
 			int minh = bfs(heightMap, h, lateral);
 			if(minh > heightMap[h.x][h.y]){
@@ -47,8 +45,9 @@ public class TrappingRainWater {
     }
 	
 	private static int bfs(int[][] heightMap, Point h, Set<Point> lateral) {
-		Queue<Point> queue = new LinkedList();
+		LinkedList<Point> queue = new LinkedList<Point>();
 		queue.add(h);
+		lateral.add(h);
 		int height= heightMap[h.x][h.y], m=heightMap.length, n=heightMap[0].length;
 		int res =Integer.MAX_VALUE;
 		int lx[]= {-1,0,0,1}, ly[]={0,-1, 1, 0};
