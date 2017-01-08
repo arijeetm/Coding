@@ -21,7 +21,7 @@ public class MaximalRectangle {
 	    		else height[j]=0;
 	    	}
 	    	//find left and right most boundary for 1
-	    	int lb=-1;
+	    	int lb=-1; //handle case of 1 element
 	    	for(int j=0; j<n; j++){
 	    		if(matrix[i][j]=='1') left[j]= Math.max(left[j], lb+1);
 	    		else{
