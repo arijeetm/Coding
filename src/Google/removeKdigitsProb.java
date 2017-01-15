@@ -6,7 +6,7 @@ public class removeKdigitsProb {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(removeKdigits("12345",1));
+		System.out.println(removeKdigits("12345",3));
 	}
 	public static String removeKdigits(String num, int k) {
 		if(num==null || num.isEmpty() || k==0) return num;

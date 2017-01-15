@@ -9,7 +9,7 @@ import java.util.Set;
 public class nthSuperUglyNumberProb {
 
 	public static void main(String[] args) {
-		System.out.println(nthSuperUglyNumber(2, new int[]{2,3,5}));
+		System.out.println(nthSuperUglyNumber(4, new int[]{2,3,5}));
 	}
 	public static int nthSuperUglyNumber(int n, int[] primes){
 		if(primes==null || primes.length==0) return 0;

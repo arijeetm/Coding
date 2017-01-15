@@ -8,7 +8,7 @@ public class textJustificationProb {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(fullJustify(new String[]
-				{"Listen","to","many,","speak","to","a","few."}, 6));
+				{"Listen","to","many,","speak","to","a","few."}, 16));
 	}
 	
 	public static List<String> fullJustify(String[] words, int maxWidth) {
