@@ -5,6 +5,13 @@ public class DistinctSubsequences {
 	public static void main(String[] args) {
 		System.out.println(numDistinct("ccc", "c"));
 	}
+	public int getMaxRepetitions(String s1, int n1, String s2, int n2) {
+		StringBuilder s= new StringBuilder();
+		StringBuilder t= new StringBuilder();
+		for(int i=0; i<n1; i++) s.append(s1);
+		for(int i=0; i<n2; i++) t.append(s2);
+		return numDistinct(s.toString(), t.toString());
+	}
 	public static int numDistinct(String s, String t) {
 		int slen=s.length(), tlen=t.length();
 		if(slen<tlen) return 0;
